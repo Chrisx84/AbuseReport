@@ -39,7 +39,7 @@ namespace AbuseReport
 
             ABUSE_URL = abuseConfig.GetString("URL", String.Empty);
 
-            m_Enabled = true;
+            m_Enabled = abuseConfig.GetBoolean("Enabled", false);
         }
 
         public void AddRegion(Scene scene)
