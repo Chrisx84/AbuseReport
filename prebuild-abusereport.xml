@@ -5,18 +5,18 @@
 
       <Configuration name="Debug">
         <Options>
-          <OutputPath>../../bin/</OutputPath>
+          <OutputPath>../../../bin/</OutputPath>
           <AllowUnsafe>true</AllowUnsafe>
         </Options>
       </Configuration>
       <Configuration name="Release">
         <Options>
-          <OutputPath>../../bin/</OutputPath>
+          <OutputPath>../../../bin/</OutputPath>
           <AllowUnsafe>true</AllowUnsafe>
         </Options>
       </Configuration>
       
-      <ReferencePath>../../bin/</ReferencePath>
+      <ReferencePath>../../../bin/</ReferencePath>
       <Reference name="Mono.Security.dll"/>
       <Reference name="Nini"/>      
       <Reference name="log4net"/>
