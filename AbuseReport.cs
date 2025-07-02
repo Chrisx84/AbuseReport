@@ -5,10 +5,12 @@ using OpenMetaverse;
 using OpenSim.Framework;
 using OpenSim.Region.Framework.Interfaces;
 using OpenSim.Region.Framework.Scenes;
+using System;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Collections.Generic;
 namespace AbuseReport
 {
     [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "AbuseReportModule")]
@@ -83,15 +85,22 @@ namespace AbuseReport
             string json = JsonSerializer.Serialize(report);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using var http = new HttpClient();
-            var reply = await http.PutAsync(ABUSE_URL, content);
-            string responseContent = await reply.Content.ReadAsStringAsync();
-            if (reply.StatusCode == HttpStatusCode.OK)
+            if (!string.IsNullOrEmpty(ABUSE_URL))
             {
-                m_log.InfoFormat("[ABUSEREPORT]: Report submitted successfully: {0}", responseContent);
+                var reply = await http.PutAsync(ABUSE_URL, content);
+                string responseContent = await reply.Content.ReadAsStringAsync();
+                if (reply.StatusCode == HttpStatusCode.OK)
+                {
+                    m_log.InfoFormat("[ABUSEREPORT]: Report submitted successfully: {0}", responseContent);
+                }
+                else
+                {
+                    m_log.ErrorFormat("[ABUSEREPORT]: Failed to submit report: {0} - {1}", reply.StatusCode, responseContent);
+                }
             }
             else
             {
-                m_log.ErrorFormat("[ABUSEREPORT]: Failed to submit report: {0} - {1}", reply.StatusCode, responseContent);
+                m_log.Error("[ABUSEREPORT]: URL is not set in the configuration.");
             }
         }
 
@@ -119,6 +128,7 @@ namespace AbuseReport
             }
         }
     }
+    [Serializable]
     public class AbuseReportJson
     {
         public string RegionName { get; set; }
