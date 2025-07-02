@@ -12,7 +12,7 @@ using System.Text.Json;
 namespace AbuseReport
 {
     [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "AbuseReportModule")]
-    public class AbuseReport : ISharedRegionModule
+    public class AbuseReport : INonSharedRegionModule
     {
         private static readonly ILog m_log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public string Name
