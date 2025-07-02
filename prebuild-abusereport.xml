@@ -5,36 +5,39 @@
 
       <Configuration name="Debug">
         <Options>
-          <OutputPath>../../../bin/</OutputPath>
+          <OutputPath>../../bin/</OutputPath>
           <AllowUnsafe>true</AllowUnsafe>
         </Options>
       </Configuration>
       <Configuration name="Release">
         <Options>
-          <OutputPath>../../../bin/</OutputPath>
+          <OutputPath>../../bin/</OutputPath>
           <AllowUnsafe>true</AllowUnsafe>
         </Options>
       </Configuration>
-
-      <ReferencePath>../../../bin/</ReferencePath>
-      <Reference name="OpenSim.Framework" path ="../../../bin"/>
-      <Reference name="OpenSim.Framework.Console" path ="../../../bin"/>
-      <Reference name="OpenSim.Framework.Servers.HttpServer" path ="../../../bin"/>
-      <Reference name="OpenSim.Services.Interfaces" path ="../../../bin"/>
-      <Reference name="OpenSim.Services.Connectors" path ="../../../bin"/>
-      <Reference name="OpenSim.Services.Base" path ="../../../bin"/>
-      <Reference name="OpenSim.Server.Base" path ="../../../bin"/>
-      <Reference name="OpenSim.Server.Handlers" path ="../../../bin"/>
-      <Reference name="OpenSim.Data" path ="../../../bin"/>
-
-      <Reference name="OpenMetaverse" path ="../../../bin"/>
-      <Reference name="OpenMetaverseTypes" path ="../../../bin"/>
-      <Reference name="OpenMetaverse.StructuredData" path ="../../../bin"/>
-
-      <Reference name="Mono.Addins" path ="../../../bin"/>
-
-      <Reference name="Nini" path ="../../../bin"/>
-      <Reference name="log4net" path ="../../../bin"/>
+      
+      <ReferencePath>../../bin/</ReferencePath>
+      <Reference name="Mono.Security.dll"/>
+      <Reference name="Nini"/>      
+      <Reference name="log4net"/>
+      <Reference name="XMLRPC"/>
+      <Reference name="MySql.Data"/>    
+      <Reference name="OpenMetaverseTypes"/>
+      <Reference name="OpenMetaverse"/>
+      <Reference name="OpenMetaverse.StructuredData"/>    
+      <Reference name="OpenSim.Region.Framework"/>
+      <Reference name="OpenSim.Framework"/>
+      <Reference name="OpenSim.Framework.Console"/>
+      <Reference name="OpenSim.Framework.Servers"/>
+      <Reference name="OpenSim.Framework.Servers.HttpServer"/>
+      <Reference name="OpenSim.Services.Interfaces"/>
+      <Reference name="OpenSim.Server.Base"/>
+      <Reference name="OpenSim.Server.Handlers"/>
+      <Reference name="OpenSim.Data"/>
+      <Reference name="OpenSim.Data.MySQL.MySQLMoneyDataWrapper"/>
+      <Reference name="OpenSim.Modules.Currency"/>
+      <Reference name="Mono.Addins"/>
+      <Reference name="Mono.Addins.Setup"/>
 
       <Files>
         <Match pattern="*.cs" recurse="true">
