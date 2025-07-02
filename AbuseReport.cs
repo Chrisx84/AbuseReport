@@ -6,11 +6,12 @@ using OpenSim.Framework;
 using OpenSim.Region.Framework.Interfaces;
 using OpenSim.Region.Framework.Scenes;
 using System;
-using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Collections.Generic;
+using System.Net;
 namespace AbuseReport
 {
     [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "AbuseReportModule")]
@@ -82,11 +83,11 @@ namespace AbuseReport
                 Summary = Summary,
                 Reporter = reporter
             };
-            string json = JsonSerializer.Serialize(report);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            using var http = new HttpClient();
             if (!string.IsNullOrEmpty(ABUSE_URL))
             {
+                string json = JsonSerializer.Serialize(report);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                using HttpClient http = new HttpClient();
                 var reply = await http.PutAsync(ABUSE_URL, content);
                 string responseContent = await reply.Content.ReadAsStringAsync();
                 if (reply.StatusCode == HttpStatusCode.OK)
