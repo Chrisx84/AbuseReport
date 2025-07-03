@@ -73,19 +73,13 @@ namespace AbuseReport
             string Summary,
             UUID reporter)
         {
+            string? screenpic = screenshotID.ToString();
+
             var report = new AbuseReportJson
             {
-                RegionName = regionName,
-                AbuserID = abuserID,
-                Category = catagory,
-                CheckFlags = checkflags,
                 Details = details,
-                ObjectID = objectID,
-                Position = postion,
-                ReportType = reportType,
-                ScreenshotID = screenshotID,
                 Summary = Summary,
-                Reporter = reporter
+                ScreenshotID = screenpic
             };
             if (!string.IsNullOrEmpty(ABUSE_URL))
             {
@@ -136,16 +130,8 @@ namespace AbuseReport
     [Serializable]
     public class AbuseReportJson
     {
-        public string? RegionName { get; set; }
-        public UUID AbuserID { get; set; }
-        public byte Category { get; set; }
-        public byte CheckFlags { get; set; }
         public string? Details { get; set; }
-        public UUID ObjectID { get; set; }
-        public Vector3 Position { get; set; }
-        public byte ReportType { get; set; }
-        public UUID ScreenshotID { get; set; }
+        public string? ScreenshotID { get; set; }
         public string? Summary { get; set; }
-        public UUID Reporter { get; set; }
     }
 }
