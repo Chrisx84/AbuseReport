@@ -15,7 +15,7 @@ using System.Net;
 namespace AbuseReport
 {
     [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "AbuseReportModule")]
-    public class AbuseReport : INonSharedRegionModule
+    public class AbuseReport : ISharedRegionModule
     {
         private static readonly ILog m_log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public string Name
@@ -42,6 +42,8 @@ namespace AbuseReport
             ABUSE_URL = abuseConfig.GetString("URL", String.Empty);
 
             m_Enabled = abuseConfig.GetBoolean("Enabled", false);
+
+            m_log.InfoFormat("[ABUSEREPORT]: Initializing {0} with URL: {1}", Name, ABUSE_URL);
         }
 
         public void AddRegion(Scene scene)
