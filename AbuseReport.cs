@@ -12,6 +12,8 @@ using System.Text;
 using System.Text.Json;
 using System.Collections.Generic;
 using System.Net;
+[assembly: Addin("AbuseReportModule", "1.0")]
+[assembly: AddinDependency("OpenSim.Region.Framework", OpenSim.VersionInfo.VersionNumber)]
 namespace AbuseReport
 {
     [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "AbuseReportModule")]
