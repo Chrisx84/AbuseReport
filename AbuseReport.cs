@@ -24,7 +24,7 @@ namespace AbuseReport
         {
             get { return "AbuseReportModule"; }
         }
-        public Type ReplaceableInterface
+        public Type? ReplaceableInterface
         {
             get { return null; }
         }
@@ -136,16 +136,16 @@ namespace AbuseReport
     [Serializable]
     public class AbuseReportJson
     {
-        public string RegionName { get; set; }
+        public string? RegionName { get; set; }
         public UUID AbuserID { get; set; }
         public byte Category { get; set; }
         public byte CheckFlags { get; set; }
-        public string Details { get; set; }
+        public string? Details { get; set; }
         public UUID ObjectID { get; set; }
         public Vector3 Position { get; set; }
         public byte ReportType { get; set; }
         public UUID ScreenshotID { get; set; }
-        public string Summary { get; set; }
+        public string? Summary { get; set; }
         public UUID Reporter { get; set; }
     }
 }
