@@ -73,7 +73,7 @@ namespace AbuseReport
             string Summary,
             UUID reporter)
         {
-            string? screenpic = screenshotID.ToString();
+            string screenpic = screenshotID.ToString();
 
             var report = new AbuseReportJson
             {
@@ -130,8 +130,8 @@ namespace AbuseReport
     [Serializable]
     public class AbuseReportJson
     {
-        public string? Details { get; set; }
-        public string? ScreenshotID { get; set; }
-        public string? Summary { get; set; }
+        public string Details { get; set; }
+        public string ScreenshotID { get; set; }
+        public string Summary { get; set; }
     }
 }
