@@ -24,7 +24,7 @@ namespace AbuseReport
         {
             get { return "AbuseReportModule"; }
         }
-        public Type? ReplaceableInterface
+        public Type ReplaceableInterface
         {
             get { return null; }
         }
